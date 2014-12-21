@@ -1,5 +1,5 @@
 name: Christmas Recipes
 #markdown: redcarpet
 highlighter: true
-#baseurl: /
+baseurl: /open-license-manager
 layout: default
