@@ -1,0 +1,5 @@
+name: Christmas Recipes
+#markdown: redcarpet
+highlighter: true
+#baseurl: /
+layout: default
