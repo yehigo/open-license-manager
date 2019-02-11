@@ -50,6 +50,7 @@ FullLicenseInfo::FullLicenseInfo(const string& source, const string& product,
 EventRegistry FullLicenseInfo::validate(int sw_version) {
 	EventRegistry er;
 	os_initialize();
+	std::cout<<"toverify "<<printForSign().c_str() <<"   "<<license_signature.c_str()<<"\n";
 	FUNCTION_RETURN sigVer = verifySignature(printForSign().c_str(),
 			license_signature.c_str());
 	bool sigVerified = sigVer == FUNC_RET_OK;
@@ -160,9 +161,11 @@ EventRegistry LicenseReader::readLicenses(const string &product,
 					FullLicenseInfo::UNUSED_SOFTWARE_VERSION);
 			int to_sw_version = ini.GetLongValue(productNamePtr,
 					"to_sw_version", FullLicenseInfo::UNUSED_SOFTWARE_VERSION);
+			string extra_data = trim_copy(
+					ini.GetValue(productNamePtr, "extra_data", ""));
 			FullLicenseInfo licInfo(*it, product, license_signature,
 					(int) license_version, from_date, to_date, client_signature,
-					from_sw_version, to_sw_version);
+					from_sw_version, to_sw_version,extra_data);
 			licenseInfoOut.push_back(licInfo);
 			atLeastOneLicenseComplete = true;
 		} else {
