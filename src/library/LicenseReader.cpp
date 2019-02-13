@@ -50,7 +50,6 @@ FullLicenseInfo::FullLicenseInfo(const string& source, const string& product,
 EventRegistry FullLicenseInfo::validate(int sw_version) {
 	EventRegistry er;
 	os_initialize();
-	std::cout<<"toverify "<<printForSign().c_str() <<"   "<<license_signature.c_str()<<"\n";
 	FUNCTION_RETURN sigVer = verifySignature(printForSign().c_str(),
 			license_signature.c_str());
 	bool sigVerified = sigVer == FUNC_RET_OK;

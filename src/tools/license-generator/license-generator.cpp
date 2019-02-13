@@ -195,42 +195,7 @@ int LicenseGenerator::generateLicense(int argc, const char **argv)
 		po::command_line_parser(argc, argv).options(allOptions).positional(p).run(), vm);
 	po::notify(vm);
 
-	for (auto &it : vm)
-	{
-		std::string s = "";
-		unsigned int i = 0;
-
-		try
-		{
-			s = it.second.as<std::string>();
-		}
-		catch (const std::exception &e)
-		{
-			try
-			{
-				i = it.second.as<unsigned int>();
-			}
-			catch (const std::exception &e)
-			{
-				try
-				{
-					vector<string> v = it.second.as<vector<string>>();
-					
-   					for (auto const& item : v) { s += item+", "; }
-				}
-				catch (const std::exception &e)
-				{
-					std::cout << "ERROR 1 " << e.what() << std::endl;
-				}
-
-				std::cout << "ERROR 2 " << e.what() << std::endl;
-			}
-
-			std::cout << "ERROR 3" << e.what() << std::endl;
-		}
-
-		std::cout << it.first.c_str() << "  +++++ " << s << i << "\n";
-	}
+	
 	if (vm.count("help") || argc == 1)
 	{
 		printHelp(argv[0], visibleOptions);

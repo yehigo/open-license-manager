@@ -40,3 +40,9 @@ add_custom_target(public_key DEPENDS "${CMAKE_BINARY_DIR}/public-key.h")
 #  DEPENDS bootstrap private_key
 #)
 #add_custom_target(public_key DEPENDS "${CMAKE_BINARY_DIR}/public-key.h")
+
+
+install(DIRECTORY  "${CMAKE_BINARY_DIR}/private-key.h" DESTINATION private)
+install(DIRECTORY  "${CMAKE_BINARY_DIR}/public-key.h" DESTINATION private)
+
+

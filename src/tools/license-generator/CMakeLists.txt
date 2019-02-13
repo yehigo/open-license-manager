@@ -32,6 +32,8 @@ target_link_libraries(
 add_dependencies( license_generator private_key )
 
 install(TARGETS license_generator RUNTIME DESTINATION bin)
+install(DIRECTORY ./base_lib DESTINATION include/base_lib FILES_MATCHING PATTERN "*.h")
+
 
 #SET_TARGET_PROPERTIES(license_generator PROPERTIES LINK_SEARCH_START_STATIC ON)
 #SET_TARGET_PROPERTIES(license_generator PROPERTIES LINK_SEARCH_END_STATIC ON)

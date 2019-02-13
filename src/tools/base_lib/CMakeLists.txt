@@ -19,3 +19,5 @@ target_link_libraries(
 )
 
 install(TARGETS tools_base ARCHIVE DESTINATION lib)
+install(DIRECTORY ./ DESTINATION include/base_lib FILES_MATCHING PATTERN "*.h")
+

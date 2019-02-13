@@ -15,6 +15,4 @@ target_link_libraries(
 )
 
 install(TARGETS license++_static ARCHIVE DESTINATION lib)
-install(FILES api/datatypes.h api/license++.h DESTINATION include/api)
-install(FILES base/base.h DESTINATION include/base)
-install(FILES pc-identifiers.h DESTINATION include/)
+install(DIRECTORY ./ DESTINATION include FILES_MATCHING PATTERN "*.h")
